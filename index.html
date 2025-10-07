@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Services - TheAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=PT+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'dm-sans': ['DM Sans', 'sans-serif'],
+                        'pt-serif': ['PT Serif', 'serif'],
+                    },
+                    colors: {
+                        'primary': '#072032',
+                        'secondary': '#FF7070',
+                        'accent': '#FFDDDD',
+                        'blue-light': '#CDEAFF',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-dm-sans bg-white">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold text-primary">TheAI</div>
+                    <ul class="hidden md:flex space-x-6">
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Pages</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Integration</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Login</a>
+                    <a href="#" class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Sign up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Discount Banner -->
+    <div class="bg-secondary text-white text-center py-3">
+        <p class="text-sm">All plans have 30% OFF For this week <a href="#" class="underline font-semibold">Claim Discount</a></p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-primary leading-tight">
+                        Automate<br>
+                        your customer<br>
+                        service with<br>
+                        <span class="text-secondary">TheAI</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Leave pen-and-paper bookings in the past allowing you to focus more on your business or simply enjoy your newfound free time.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Email" class="px-6 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <button class="bg-secondary text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold">Get started</button>
+                    </div>
+                    <div class="flex items-center space-x-4 text-sm text-gray-500">
+                        <span>No credit card required</span>
+                        <span>•</span>
+                        <span>14 days free trial</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="space-y-4">
+                            <div class="h-4 bg-gray-200 rounded w-3/4"></div>
+                            <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+                            <div class="h-32 bg-gradient-to-r from-secondary to-pink-400 rounded-lg"></div>
+                            <div class="h-4 bg-gray-200 rounded w-2/3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-12">TheAI software trusted by the great company</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+                <div class="h-12 bg-gray-300 rounded"></div>
+                <div class="h-12 bg-gray-300 rounded"></div>
+                <div class="h-12 bg-gray-300 rounded"></div>
+                <div class="h-12 bg-gray-300 rounded"></div>
+                <div class="h-12 bg-gray-300 rounded"></div>
+                <div class="h-12 bg-gray-300 rounded"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-bold text-primary">
+                        Faster advantage for<br>
+                        support team workspace.
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Deliver happiness to your customers and get them to adore you! Desk helps you be more accessible
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Create task for any team person</h3>
+                                <p class="text-gray-600">Continue your dialogue with clarifying info and request. Deliver happiness to your customers and get them to adore you!</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Third party data protection</h3>
+                                <p class="text-gray-600">Continue your dialogue with clarifying info and request. Deliver happiness to your customers and get them to adore you!</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Get task completed by your members</h3>
+                                <p class="text-gray-600">Continue your dialogue with clarifying info and request. Deliver happiness to your customers and get them to adore you!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-blue-light to-blue-200 rounded-2xl p-8 h-96 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-primary">Customer Support Dashboard</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Cards -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">
+                    Choose it for capture<br>
+                    leads and make buying<br>
+                    easy
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Track all metrics with custom reports. Maximize impact by analyzing campaign results and content performance easily. Personalize your emails
+                </p>
+                <button class="mt-8 bg-secondary text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold">Book a demo</button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Quick message reply in one click.</h3>
+                    <p class="text-gray-600">24/7 hours available</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-blue-light rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15.586 13H14a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Fully responsive layout.</h3>
+                    <p class="text-gray-600">For all the device</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Get instant support for all day.</h3>
+                    <p class="text-gray-600">Getting ready</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">
+                    AAE makes your<br>
+                    business support easier.
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Deliver happiness to your customers and get them to adore you! Desk helps you be more accessible
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="space-y-4">
+                    <div class="text-5xl font-bold text-secondary">50M</div>
+                    <p class="text-xl text-gray-600">Emails per month and websites</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-5xl font-bold text-secondary">98%</div>
+                    <p class="text-xl text-gray-600">Client support and satisfaction</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-5xl font-bold text-secondary">25k+</div>
+                    <p class="text-xl text-gray-600">Monthly campaign with orders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-6">
+                    Optimize your services and resize<br>
+                    business.
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Track all metrics with custom reports. Maximize impact by analyzing campaign results and content performance easily. Personalize your emails
+                </p>
+                <div class="bg-gray-800 rounded-2xl p-8 mb-8">
+                    <div class="aspect-video bg-gray-700 rounded-lg flex items-center justify-center">
+                        <button class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center hover:bg-opacity-90 transition-all">
+                            <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Automation builder track your performance and more—all from a single platform.</h3>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Awesome dashboard channel for businesses of any size. Start your video course today.</h3>
+                    </div>
+                </div>
+                <button class="mt-8 bg-secondary text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold">Signup now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Satisfied customers feedback</h2>
+                <p class="text-xl text-gray-600">
+                    Deliver happiness to your customers and get them to adore you! Desk helps you be more accessible
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Charry Maron</h4>
+                            <p class="text-gray-600 text-sm">Developer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Improve audience engagement by segmenting. Boost your conversions by targeting subsets from your contacts. Give them content they need."
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Charry Maron</h4>
+                            <p class="text-gray-600 text-sm">Developer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Our social media engagement soared the first month of using this software that actually get read, and don't just get lost in inboxes."
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Charry Maron</h4>
+                            <p class="text-gray-600 text-sm">Developer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Optimizing images never felt this easy. My website's performance skyrocketed, and my Google rankings followed suit. I couldn't be happier!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ratings -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Highly rated software by customers</h2>
+                <p class="text-xl text-gray-600">
+                    Deliver happiness to your customers and get them to adore you! Desk helps you be more accessible
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-4xl font-bold text-secondary mb-2">4.9</div>
+                    <p class="text-gray-600">(2.5k+ user's reviews)</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-4xl font-bold text-secondary mb-2">4.7</div>
+                    <p class="text-gray-600">(2.5k+ user's reviews)</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-4xl font-bold text-secondary mb-2">4.8</div>
+                    <p class="text-gray-600">(2.5k+ user's reviews)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features List -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">
+                    Offer a superb<br>
+                    freedom
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Our simple tools help you manage inventory stock and watch your business thrive.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-primary">Optimized posting times</h3>
+                    <p class="text-gray-600">Our AI-driven scheduler suggests the best posting times for your audience, maximizing engagement and reach.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-primary">Flexible pricing plan for chatting</h3>
+                    <p class="text-gray-600">Our AI-driven scheduler suggests the best posting times for your audience, maximizing engagement and reach.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-primary">Content calendar visibility</h3>
+                    <p class="text-gray-600">Our AI-driven scheduler suggests the best posting times for your audience, maximizing engagement and reach.</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-12 space-x-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-primary">Supporting</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-primary">Messaging</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <p class="font-semibold text-primary">Ticketing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">
+                    Here's what you will save<br>
+                    per user, per month.
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Deliver happiness to your customers and get them to adore you! Desk helps you be more accessible
+                </p>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button class="px-6 py-2 bg-gray-200 rounded-full">Monthly</button>
+                    <button class="px-6 py-2 bg-secondary text-white rounded-full">Annual</button>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Basic</h3>
+                    <p class="text-gray-600 mb-6">Ability to understand and generate content</p>
+                    <div class="text-4xl font-bold text-primary mb-6">$09<span class="text-lg text-gray-600">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Unlimited cards</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Automated management</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>SOX compliance</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Enterprise ERP integrations</li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-full hover:bg-gray-300 transition-all">Test 14 days for free</button>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg border">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Standard</h3>
+                    <p class="text-gray-600 mb-6">Additional user account and collaboration</p>
+                    <div class="text-4xl font-bold text-primary mb-6">$29<span class="text-lg text-gray-600">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Unlimited cards</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Automated management</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>SOX compliance</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Enterprise ERP integrations</li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-full hover:bg-gray-300 transition-all">Test 14 days for free</button>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg border">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Silver</h3>
+                    <p class="text-gray-600 mb-6">Lead, contact, and account objects</p>
+                    <div class="text-4xl font-bold text-primary mb-6">$39<span class="text-lg text-gray-600">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Unlimited cards</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Automated management</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>SOX compliance</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Enterprise ERP integrations</li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-full hover:bg-gray-300 transition-all">Test 14 days for free</button>
+                </div>
+                
+                <div class="bg-secondary rounded-2xl p-8 shadow-lg border-2 border-secondary relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm">Popular</div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Premium</h3>
+                    <p class="text-white opacity-90 mb-6">Ability to understand and generate content</p>
+                    <div class="text-4xl font-bold text-white mb-6">$49<span class="text-lg text-white opacity-90">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span class="text-white">Unlimited cards</span></li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span class="text-white">Automated management</span></li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span class="text-white">SOX compliance</span></li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-white mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg><span class="text-white">Enterprise ERP integrations</span></li>
+                    </ul>
+                    <button class="w-full bg-white text-secondary py-3 rounded-full hover:bg-gray-100 transition-all font-semibold">Test 14 days for free</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="text-2xl font-bold">TheAI</div>
+                    <p class="text-gray-300">Automate your customer service with AI-powered solutions.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Product</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Integration</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 TheAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
