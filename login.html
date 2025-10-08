@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TheAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=PT+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'dm-sans': ['DM Sans', 'sans-serif'],
+                        'pt-serif': ['PT Serif', 'serif'],
+                    },
+                    colors: {
+                        'primary': '#072032',
+                        'secondary': '#FF7070',
+                        'accent': '#FFDDDD',
+                        'blue-light': '#CDEAFF',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-dm-sans bg-white">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold text-primary">TheAI</div>
+                    <ul class="hidden md:flex space-x-6">
+                        <li><a href="customer-service.html" class="text-gray-700 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Pages</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Integration</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="blog.html" class="text-gray-700 hover:text-primary transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="text-primary font-semibold">Login</a>
+                    <a href="signup.html" class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Sign up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Discount Banner -->
+    <div class="bg-secondary text-white text-center py-3">
+        <p class="text-sm">All plans have 30% OFF For this week <a href="#" class="underline font-semibold">Claim Discount</a></p>
+    </div>
+
+    <!-- Login Section -->
+    <section class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <!-- Left Side - Login Form -->
+                <div class="order-2 lg:order-1">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 lg:p-12 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center mb-8">
+                            <h1 class="text-3xl font-bold text-primary mb-2">Welcome Back</h1>
+                            <p class="text-gray-600">Sign in to your TheAI account</p>
+                        </div>
+
+                        <form class="space-y-6" id="loginForm">
+                            <!-- Email Field -->
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-primary mb-2">Email Address</label>
+                                <div class="relative">
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all pl-12"
+                                        placeholder="Enter your email"
+                                    >
+                                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+                                        <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Password Field -->
+                            <div>
+                                <label for="password" class="block text-sm font-semibold text-primary mb-2">Password</label>
+                                <div class="relative">
+                                    <input 
+                                        type="password" 
+                                        id="password" 
+                                        name="password" 
+                                        required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all pl-12 pr-12"
+                                        placeholder="Enter your password"
+                                    >
+                                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+                                        <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <button type="button" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors" onclick="togglePassword()">
+                                        <svg id="eyeIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Remember Me & Forgot Password -->
+                            <div class="flex items-center justify-between">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="w-4 h-4 text-secondary border-gray-300 rounded focus:ring-secondary focus:ring-2">
+                                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                                </label>
+                                <a href="#" class="text-sm text-secondary hover:text-primary transition-colors font-semibold">Forgot password?</a>
+                            </div>
+
+                            <!-- Login Button -->
+                            <button 
+                                type="submit" 
+                                class="w-full bg-secondary text-white py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                            >
+                                Sign In
+                            </button>
+
+                            <!-- Divider -->
+                            <div class="relative my-6">
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="w-full border-t border-gray-300"></div>
+                                </div>
+                                <div class="relative flex justify-center text-sm">
+                                    <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                                </div>
+                            </div>
+
+                            <!-- Social Login Buttons -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <button type="button" class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-full hover:bg-gray-50 transition-all">
+                                    <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                    </svg>
+                                    <span class="text-sm font-semibold text-gray-700">Google</span>
+                                </button>
+                                <button type="button" class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-full hover:bg-gray-50 transition-all">
+                                    <svg class="w-5 h-5 mr-2" fill="#1877F2" viewBox="0 0 24 24">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                    <span class="text-sm font-semibold text-gray-700">Facebook</span>
+                                </button>
+                            </div>
+
+                            <!-- Sign Up Link -->
+                            <div class="text-center mt-6">
+                                <p class="text-gray-600">
+                                    Don't have an account? 
+                                    <a href="signup.html" class="text-secondary hover:text-primary transition-colors font-semibold">Sign up here</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Side - Illustration/Info -->
+                <div class="order-1 lg:order-2 text-center lg:text-left">
+                    <div class="space-y-8">
+                        <h2 class="text-4xl lg:text-5xl font-bold text-primary leading-tight">
+                            Access Your<br>
+                            <span class="text-secondary">AI-Powered</span><br>
+                            Dashboard
+                        </h2>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Manage your customer service automation, view analytics, and optimize your AI chatbots all in one place.
+                        </p>
+                        
+                        <!-- Feature List -->
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-primary">Real-time Analytics</h3>
+                                    <p class="text-gray-600">Monitor your customer service performance</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-primary">AI Chatbot Management</h3>
+                                    <p class="text-gray-600">Configure and optimize your chatbots</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-primary">Team Collaboration</h3>
+                                    <p class="text-gray-600">Work together with your support team</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Decorative Element -->
+                        <div class="relative mt-12">
+                            <div class="bg-white rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                                <div class="space-y-3">
+                                    <div class="h-3 bg-gray-200 rounded w-3/4"></div>
+                                    <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+                                    <div class="h-20 bg-gradient-to-r from-secondary to-pink-400 rounded-lg flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="h-3 bg-gray-200 rounded w-2/3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="text-2xl font-bold">TheAI</div>
+                    <p class="text-gray-300">Automate your customer service with AI-powered solutions.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Product</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Integration</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 TheAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.innerHTML = `
+                    <path d="M17.94 17.94A10.07 10.07 0 01.66 10a10.07 10.07 0 0117.28 0 10.07 10.07 0 01-17.28 0z"></path>
+                    <path d="M9.9 4.24A9.12 9.12 0 0110 4a10.07 10.07 0 017.94 15.76M15 13a5 5 0 11-5-5l.28.28M2.18 2.18l15.64 15.64"></path>
+                `;
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.innerHTML = `
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                `;
+            }
+        }
+
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate login process
+            const submitButton = document.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'Signing In...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('Login successful! Redirecting to dashboard...');
+                // In a real application, you would redirect to the dashboard
+                // window.location.href = 'dashboard.html';
+                
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        });
+
+        // Add smooth animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
