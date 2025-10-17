@@ -1,167 +1,241 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.validators import MinLengthValidator
 
 
-# -------------------------------
-# 1️⃣ MAIN SERVICE (PARENT)
-# -------------------------------
-class MainService(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True, blank=True)
-    short_description = models.TextField(blank=True, null=True)
-    featured_image = models.ImageField(upload_to="services/main/", blank=True, null=True)
-    ranking = models.PositiveIntegerField(default=0)
-    is_featured = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
+class Service(models.Model):
+    service_name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=220, unique=True, blank=True)
+    short_description = models.TextField(
+        max_length=300,
+        help_text="A short description to display on the homepage."
+    )
+    icon_class = models.CharField(
+        max_length=100,
+        default="fa-solid fa-code",
+        help_text="FontAwesome icon class (e.g., 'fa-solid fa-robot')."
+    )
+    is_active = models.BooleanField(
+        default=False,
+        help_text="Set to True to make this service Details visible on the site."
+    )
 
     class Meta:
-        ordering = ['ranking']
+        verbose_name = "Service"
+        verbose_name_plural = "Services"
+        ordering = ["service_name"]
+
+    def __str__(self):
+        return self.service_name
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
-        if not self.ranking:
-            self.ranking = MainService.objects.count() + 1
+            base_slug = slugify(self.service_name)
+            slug = base_slug
+            counter = 1
+            while Service.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
         super().save(*args, **kwargs)
 
+
+# Details are stored in a OneToOne model so the main Service table remains narrow.
+class ServiceDetails(models.Model):
+    service = models.OneToOneField(Service, on_delete=models.CASCADE, related_name='details')
+
+    # HERO AREA
+    hero_h1 = models.CharField(max_length=200, blank=True, help_text="Main H1 for hero area Separate with / for highlighting")
+    hero_tagline = models.TextField( blank=True, help_text="Short tagline under the H1")
+
+    # SHORT-DETAILS AREA (single title + image, bullet points in a separate model)
+    short_section_title = models.CharField(max_length=200, blank=True, help_text="Main H2 for hero area Separate with / for highlighting")
+    short_section_details = models.TextField(blank=True, help_text="Detailed description shown beside the bullet points.")
+    short_section_image = models.ImageField(
+        upload_to='service_short_images/',
+        null=True,
+        blank=True,
+        help_text="Image shown beside the short details (like illustration/card)"
+    )
+
+    # metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Service Details"
+        verbose_name_plural = "Service Details"
+
+    @property
+    def split_short_title(self):
+        """
+        Split the short_section_title at the last '/' to allow multi-line display.
+        Example: 'Complete SEO Automation / For Your Business'
+                -> ('Complete SEO Automation', 'For Your Business')
+        """
+        if self.short_section_title and "/" in self.short_section_title:
+            parts = self.short_section_title.rsplit("/", 1)
+            return parts[0].strip(), parts[1].strip()
+        return self.short_section_title, ""
+    
+    @property
+    def split_hero_h1(self):
+
+        if "/" in self.hero_h1:
+            parts = self.hero_h1.rsplit("/", 1)
+            return parts[0].strip(), parts[1].strip()
+        return self.hero_h1, ""  # if no slash found
+
     def __str__(self):
-        return self.title
+        return f"Details for {self.service.service_name}"
 
 
-# -------------------------------
-# 2️⃣ SUB SERVICE (UNDER MAIN SERVICE)
-# -------------------------------
-class SubService(models.Model):
-    main_service = models.ForeignKey(MainService, related_name="subservices", on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True, blank=True)
-    short_description = models.TextField(blank=True, null=True)
-    introduction = models.TextField(blank=True, null=True)
-    overview = models.TextField(blank=True, null=True)
-    conclusion = models.TextField(blank=True, null=True)
-    featured_image = models.ImageField(upload_to="services/sub/", blank=True, null=True)
-    ranking = models.PositiveIntegerField(default=0)
-    is_published = models.BooleanField(default=True)
+# Bullet points for the short-details area: name + description
+class BulletPointServices(models.Model):
+    details = models.ForeignKey(ServiceDetails, on_delete=models.CASCADE, related_name='bullet_points')
+    order = models.PositiveSmallIntegerField(default=0, help_text="Order for display (lower first)")
+    title = models.CharField(max_length=150)
+    description = models.TextField(blank=True, validators=[MinLengthValidator(0)])
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = "Bullet Point"
+        verbose_name_plural = "Bullet Points"
+
+    def __str__(self):
+        return f"{self.title} ({self.details.service.service_name})"
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    company = models.CharField(max_length=200, blank=True, null=True)
+
+    # Optional — only used when submitted from home page
+    service_interested = models.ForeignKey(
+        Service,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='contacts',
+        help_text="Selected service if submitted from homepage."
+    )
+
+    # Automatically captured when submitted from subservice or other pages
+    page_source = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="Readable page or section name where the form was submitted (e.g. 'SEO Automation')."
+    )
+
+    page_url = models.URLField(
+        blank=True,
+        null=True,
+        help_text="Full URL of the page where the form was submitted."
+    )
+
+    message = models.TextField()
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['ranking']
+        verbose_name = "Contact Message"
+        verbose_name_plural = "Contact Messages"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.name} ({self.email})"
+
+
+
+class SubService(models.Model):
+    """
+    Represents individual sub-services under a main Service.
+    Example: Under 'SEO Automation' → 'Technical SEO Audit', 'Content Optimization', etc.
+    """
+    parent_service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE,
+        related_name='sub_services',
+        help_text="Main service this sub-service belongs to."
+    )
+
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=220, unique=True, blank=True)
+    short_title = models.CharField(
+        max_length=150,
+        blank=True,
+        help_text="Optional short label used inside the colored card."
+    )
+    description = models.TextField(blank=True)
+
+    icon_class = models.CharField(
+        max_length=100,
+        default="fa-solid fa-cog",
+        help_text="FontAwesome icon class (e.g., 'fa-solid fa-chart-line')."
+    )
+
+    # Optional accent color theme
+    color_theme = models.CharField(
+        max_length=50,
+        choices=[
+            ('accent', 'Accent / Blue'),
+            ('green', 'Green'),
+            ('purple', 'Purple'),
+            ('yellow', 'Yellow'),
+            ('red', 'Red'),
+        ],
+        default='accent',
+        help_text="Controls the color background of the sub-service section."
+    )
+
+    image = models.ImageField(
+        upload_to="sub_service_images/",
+        null=True,
+        blank=True,
+        help_text="Optional image or illustration for this sub-service."
+    )
+
+    is_active = models.BooleanField(default=True)
+    order = models.PositiveSmallIntegerField(default=0, help_text="Order of appearance in the section")
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Sub Service"
+        verbose_name_plural = "Sub Services"
+        ordering = ["parent_service", "order"]
+
+    def __str__(self):
+        return f"{self.title} ({self.parent_service.service_name})"
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
-        if not self.ranking:
-            self.ranking = SubService.objects.filter(main_service=self.main_service).count() + 1
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+            while SubService.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f"{self.title} ({self.main_service.title})"
 
-
-# -------------------------------
-# 3️⃣ FEATURES UNDER EACH SUB SERVICE
-# -------------------------------
 class SubServiceFeature(models.Model):
-    sub_service = models.ForeignKey(SubService, related_name="features", on_delete=models.CASCADE)
-    title = models.CharField(max_length=150)
-    description = models.TextField()
-    icon = models.CharField(max_length=100, blank=True, help_text="SVG or icon class name")
-    ranking = models.PositiveIntegerField(default=0)
-
-    class Meta:
-        ordering = ['ranking']
-
-    def __str__(self):
-        return f"{self.title} - {self.sub_service.title}"
-
-
-# -------------------------------
-# 4️⃣ PRICING PLANS FOR EACH SUB SERVICE
-# -------------------------------
-class Pricing(models.Model):
-    sub_service = models.ForeignKey(SubService, related_name="pricing_plans", on_delete=models.CASCADE)
-    plan_name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    duration = models.CharField(max_length=50, blank=True, null=True, help_text="e.g. per month, one-time")
-    description = models.TextField(blank=True, null=True)
-    features = models.TextField(blank=True, help_text="Use bullet points or HTML list")
-    is_popular = models.BooleanField(default=False)
-    ranking = models.PositiveIntegerField(default=0)
-
-    class Meta:
-        ordering = ['ranking']
-
-    def __str__(self):
-        return f"{self.plan_name} - {self.sub_service.title}"
-
-
-# -------------------------------
-# 5️⃣ FAQ SECTION
-# -------------------------------
-class FAQ(models.Model):
-    sub_service = models.ForeignKey(SubService, related_name="faqs", on_delete=models.CASCADE)
-    question = models.CharField(max_length=255)
-    answer = models.TextField()
-
-    def __str__(self):
-        return self.question
-
-
-# -------------------------------
-# 6️⃣ TRUSTED COMPANIES (LOGOS)
-# -------------------------------
-class CompanyLogo(models.Model):
-    name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to="companies/logos/")
-    website = models.URLField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-
-
-# -------------------------------
-# 7️⃣ TESTIMONIALS (GLOBAL / MAIN / SUB LEVEL)
-# -------------------------------
-class Testimonial(models.Model):
-    # Level relationships
-    main_service = models.ForeignKey(
-        MainService,
-        related_name="testimonials",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-        help_text="Attach to a specific Main Service (optional)"
-    )
     sub_service = models.ForeignKey(
         SubService,
-        related_name="testimonials",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-        help_text="Attach to a specific Sub Service (optional)"
+        on_delete=models.CASCADE,
+        related_name="features"
     )
-
-    # Content fields
-    name = models.CharField(max_length=100)
-    designation = models.CharField(max_length=150, blank=True, null=True)
-    company = models.CharField(max_length=150, blank=True, null=True)
-    message = models.TextField()
-    photo = models.ImageField(upload_to="testimonials/photos/", blank=True, null=True)
-
-    # Display logic
-    show_on_home = models.BooleanField(default=False, help_text="Show this testimonial on the Home Page")
-    is_active = models.BooleanField(default=True)
-    ranking = models.PositiveIntegerField(default=0)
-    created_at = models.DateTimeField(auto_now_add=True)
+    text = models.CharField(max_length=255)
+    order = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ['ranking']
+        ordering = ["order"]
+        verbose_name = "Sub Service Feature"
+        verbose_name_plural = "Sub Service Features"
 
     def __str__(self):
-        location = (
-            self.sub_service.title if self.sub_service else
-            self.main_service.title if self.main_service else
-            "Global"
-        )
-        return f"{self.name} ({location})"
+        return f"{self.text} ({self.sub_service.title})"
