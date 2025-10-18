@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Service, Contact
+from .models import Service, Contact, FAQ
 
 def home(request):
     services = Service.objects.all().order_by('service_name')
@@ -43,20 +43,27 @@ def home(request):
 
 
 def service_detail(request, slug):
-    """
-    Display a single service with its details (hero area + short details + bullet points).
-    """
-    # Optimize database queries:
-    # - select_related: joins the 1-to-1 ServiceDetails table
-    # - prefetch_related: fetches all BulletPoints in one go
     service = get_object_or_404(
-        Service.objects.select_related("details").prefetch_related("details__bullet_points"),
+        Service.objects
+        .select_related("details")
+        .prefetch_related(
+            "details__bullet_points",
+            "sub_services__features"
+        ),
         slug=slug
     )
 
     context = {
         "service": service,
-        "details": service.details,  # for convenience in template
+        "details": service.details,
         "bullet_points": service.details.bullet_points.all(),
+        "sub_services": service.sub_services.all(),
+        # ✅ only FAQs linked *directly* to this main service
+        "faqs": FAQ.objects.filter(
+            service=service,
+            sub_service__isnull=True,
+            is_active=True
+        ),
     }
+    print("Service Detail Context:", context)  # Debugging line
     return render(request, "services/service_detail.html", context)

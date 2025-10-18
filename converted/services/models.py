@@ -163,11 +163,6 @@ class SubService(models.Model):
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=220, unique=True, blank=True)
-    short_title = models.CharField(
-        max_length=150,
-        blank=True,
-        help_text="Optional short label used inside the colored card."
-    )
     description = models.TextField(blank=True)
 
     icon_class = models.CharField(
@@ -189,14 +184,6 @@ class SubService(models.Model):
         default='accent',
         help_text="Controls the color background of the sub-service section."
     )
-
-    image = models.ImageField(
-        upload_to="sub_service_images/",
-        null=True,
-        blank=True,
-        help_text="Optional image or illustration for this sub-service."
-    )
-
     is_active = models.BooleanField(default=True)
     order = models.PositiveSmallIntegerField(default=0, help_text="Order of appearance in the section")
 
@@ -239,3 +226,54 @@ class SubServiceFeature(models.Model):
 
     def __str__(self):
         return f"{self.text} ({self.sub_service.title})"
+
+
+from django.core.exceptions import ValidationError
+
+class FAQ(models.Model):
+    """
+    Frequently Asked Questions — linked to either a main Service or a SubService.
+    """
+    service = models.ForeignKey(
+        'Service',
+        on_delete=models.CASCADE,
+        related_name='faqs',
+        null=True,
+        blank=True,
+        help_text="Attach this FAQ to a main service."
+    )
+    sub_service = models.ForeignKey(
+        'SubService',
+        on_delete=models.CASCADE,
+        related_name='faqs',
+        null=True,
+        blank=True,
+        help_text="Attach this FAQ to a sub-service."
+    )
+
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
+    order = models.PositiveSmallIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "FAQ"
+        verbose_name_plural = "FAQs"
+        ordering = ['order', 'created_at']
+
+    def __str__(self):
+        if self.sub_service:
+            return f"FAQ ({self.sub_service.title}): {self.question[:40]}"
+        elif self.service:
+            return f"FAQ ({self.service.service_name}): {self.question[:40]}"
+        return self.question
+
+    def clean(self):
+        # Ensure it's attached to *either* a Service or a SubService, not both
+        if not self.service and not self.sub_service:
+            raise ValidationError("You must link this FAQ to either a Service or a SubService.")
+        if self.service and self.sub_service:
+            raise ValidationError("An FAQ cannot be linked to both a Service and a SubService.")

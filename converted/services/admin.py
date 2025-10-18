@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service,Contact,ServiceDetails, BulletPointServices
+from .models import Service,Contact,ServiceDetails, BulletPointServices,FAQ
 from django.contrib import admin
 from .models import SubService, SubServiceFeature
 
@@ -60,3 +60,12 @@ class SubServiceAdmin(admin.ModelAdmin):
     list_editable = ('is_active', 'order')
     prepopulated_fields = {'slug': ('title',)}
     inlines = (SubServiceFeatureInline,)
+
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('question', 'service', 'sub_service', 'is_active', 'order')
+    list_filter = ('service', 'sub_service', 'is_active')
+    search_fields = ('question', 'answer')
+    ordering = ('order',)
