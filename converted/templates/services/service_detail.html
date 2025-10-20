@@ -175,7 +175,7 @@
                         </ul>
                         {% endif %}
 
-                        <a href="#contact" class="inline-flex items-center text-secondary font-semibold hover:underline">
+                        <a href="{% url 'subservice_detail' service_slug=service.slug subservice_slug=sub.slug %}" class="inline-flex items-center text-secondary font-semibold hover:underline">
                             Learn more →
                         </a>
                     </div>

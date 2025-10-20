@@ -1,0 +1,926 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Service Hero Section -->
+<section 
+  class="
+    {% if sub_service.color_theme == 'green' %}
+      bg-gradient-to-br from-green-50 to-emerald-100
+    {% elif sub_service.color_theme == 'purple' %}
+      bg-gradient-to-br from-purple-50 to-fuchsia-100
+    {% elif sub_service.color_theme == 'yellow' %}
+      bg-gradient-to-br from-yellow-50 to-amber-100
+    {% elif sub_service.color_theme == 'red' %}
+      bg-gradient-to-br from-red-50 to-rose-100
+    {% else %}
+      bg-gradient-to-br from-blue-50 to-indigo-100
+    {% endif %}
+    py-12 sm:py-20
+  ">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Parent Service Badge -->
+      <div class="inline-flex items-center bg-accent rounded-full px-4 py-2 mb-6">
+        <span class="text-secondary text-sm font-semibold">
+          {{ parent_service.service_name|upper }}
+        </span>
+      </div>
+
+      <!-- Hero Title (SubService Title) -->
+      <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary leading-tight mb-6">
+        {{ sub_service.title }}
+      </h1>
+
+      <!-- Description -->
+      {% if sub_service.description %}
+        <p class="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-8">
+          {{ sub_service.description }}
+        </p>
+      {% endif %}
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#contact"
+           class="bg-secondary text-white px-6 sm:px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold text-sm sm:text-base">
+           Get Started
+        </a>
+        <a href="#pricing"
+           class="border-2 border-secondary text-secondary px-6 sm:px-8 py-3 rounded-full hover:bg-secondary hover:text-white transition-all font-semibold text-sm sm:text-base text-center">
+           View Pricing
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Service Overview -->
+    <section class="py-12 sm:py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-primary">
+                        Complete Technical SEO<br>
+                        Audit For Your Website
+                    </h2>
+                    <p class="text-base sm:text-xl text-gray-600">
+                        Our technical SEO audit service provides a comprehensive analysis of your website's technical
+                        infrastructure. We identify issues that could be affecting your search rankings and provide
+                        actionable recommendations to fix them.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-2">Site speed optimization
+                                </h3>
+                                <p class="text-gray-600 text-sm sm:text-base">Improve page load times for better
+                                    rankings</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-2">Mobile-friendliness check
+                                </h3>
+                                <p class="text-gray-600 text-sm sm:text-base">Ensure your site works perfectly on all
+                                    devices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-2">Crawlability analysis
+                                </h3>
+                                <p class="text-gray-600 text-sm sm:text-base">Make sure search engines can find and
+                                    index your content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-6 sm:p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="space-y-4">
+                            <div class="h-3 sm:h-4 bg-gray-200 rounded w-3/4"></div>
+                            <div class="h-3 sm:h-4 bg-gray-200 rounded w-1/2"></div>
+                            <div class="h-24 sm:h-32 bg-gradient-to-r from-secondary to-pink-400 rounded-lg"></div>
+                            <div class="h-3 sm:h-4 bg-gray-200 rounded w-2/3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical SEO Audit Details -->
+    <section class="py-12 sm:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                    What Our Technical SEO<br>
+                    Audit Covers
+                </h2>
+                <p class="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                    Our comprehensive technical SEO audit analyzes every aspect of your website's technical health.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Site Speed Analysis -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="w-16 h-16 bg-blue-light rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Site Speed Analysis</h3>
+                    <p class="text-gray-600 mb-4">
+                        We analyze your website's loading speed and identify factors that may be slowing it down.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Page load time analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Image optimization check</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Caching configuration review</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Optimization -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z">
+                            </path>
+                            <path
+                                d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Mobile Optimization</h3>
+                    <p class="text-gray-600 mb-4">
+                        We check how your website performs on mobile devices and identify mobile-specific issues.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Responsive design check</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Touch elements usability</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Mobile page speed analysis</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Crawlability & Indexation -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Crawlability & Indexation</h3>
+                    <p class="text-gray-600 mb-4">
+                        We analyze how search engines crawl and index your website to ensure all your content is
+                        discoverable.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Robots.txt analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>XML sitemap review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Crawl budget optimization</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- On-Page SEO Elements -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">On-Page SEO Elements</h3>
+                    <p class="text-gray-600 mb-4">
+                        We review your on-page SEO elements to ensure they're optimized for search engines.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Title tags optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Meta descriptions review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Header tags analysis</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Site Architecture -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Site Architecture</h3>
+                    <p class="text-gray-600 mb-4">
+                        We analyze your website's structure to ensure it's optimized for both users and search engines.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>URL structure analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Internal linking review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Navigation structure check</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Schema Markup -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Schema Markup</h3>
+                    <p class="text-gray-600 mb-4">
+                        We check for proper implementation of structured data to enhance your search listings.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Schema implementation check</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Rich snippets optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>JSON-LD validation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-12 sm:py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                    How Our Technical SEO<br>
+                    Audit Process Works
+                </h2>
+                <p class="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                    Our streamlined process ensures you get a comprehensive technical SEO audit with actionable
+                    recommendations.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Initial Analysis</h3>
+                    <p class="text-gray-600 text-sm">We start by analyzing your website's current technical state using
+                        our advanced audit tools.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Comprehensive Audit</h3>
+                    <p class="text-gray-600 text-sm">Our team conducts a thorough technical SEO audit covering all
+                        aspects of your website.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Report & Recommendations</h3>
+                    <p class="text-gray-600 text-sm">You receive a detailed report with prioritized recommendations to
+                        fix identified issues.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-xl font-bold">4</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Implementation Support</h3>
+                    <p class="text-gray-600 text-sm">We provide guidance and support to help you implement the
+                        recommended changes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-12 sm:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                    Technical SEO Audit Pricing
+                </h2>
+                <p class="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                    Choose the right technical SEO audit package for your business needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+                <!-- Basic Audit -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Basic Audit</h3>
+                        <p class="text-gray-600 text-sm">For small websites</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">$149</span>
+                        <span class="text-gray-600">/one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Up to 10 pages analyzed</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Basic technical audit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">PDF report</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Email support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="block w-full bg-white border-2 border-secondary text-secondary py-3 rounded-full hover:bg-secondary hover:text-white transition-all font-semibold text-center">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Professional Audit -->
+                <div
+                    class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-secondary relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-secondary text-white px-4 py-1 rounded-full text-sm font-semibold">Most
+                            Popular</span>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Professional Audit</h3>
+                        <p class="text-gray-600 text-sm">For medium-sized websites</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">$299</span>
+                        <span class="text-gray-600">/one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Up to 50 pages analyzed</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Comprehensive technical audit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Detailed PDF report</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">30-minute consultation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Priority email support</span>
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="block w-full bg-secondary text-white py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold text-center">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Enterprise Audit -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Enterprise Audit</h3>
+                        <p class="text-gray-600 text-sm">For large websites</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">$599</span>
+                        <span class="text-gray-600">/one-time</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Unlimited pages analyzed</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Advanced technical audit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Comprehensive report with dashboard</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">1-hour consultation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Implementation support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Dedicated account manager</span>
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="block w-full bg-white border-2 border-secondary text-secondary py-3 rounded-full hover:bg-secondary hover:text-white transition-all font-semibold text-center">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 sm:py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                    Technical SEO Audit FAQs
+                </h2>
+                <p class="text-base sm:text-xl text-gray-600">
+                    Find answers to common questions about our technical SEO audit services.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFAQ(this)">
+                        <span class="font-semibold text-primary">What is a technical SEO audit?</span>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-gray-600">
+                            A technical SEO audit is a comprehensive analysis of your website's technical infrastructure
+                            to identify issues that may be affecting your search engine rankings. It examines factors
+                            like site speed, mobile-friendliness, crawlability, indexation, and more to ensure your
+                            website is optimized for search engines.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFAQ(this)">
+                        <span class="font-semibold text-primary">How long does a technical SEO audit take?</span>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-gray-600">
+                            The time required for a technical SEO audit depends on the size and complexity of your
+                            website. For our Basic Audit (up to 10 pages), it typically takes 2-3 business days. The
+                            Professional Audit (up to 50 pages) usually takes 3-5 business days, while the Enterprise
+                            Audit (unlimited pages) may take 5-7 business days.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFAQ(this)">
+                        <span class="font-semibold text-primary">What issues can a technical SEO audit identify?</span>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-gray-600">
+                            A technical SEO audit can identify a wide range of issues including slow page load times,
+                            mobile usability problems, crawl errors, indexation issues, broken links, duplicate content,
+                            improper URL structures, missing or incorrect meta tags, schema markup errors, and more.
+                            These issues can significantly impact your search engine rankings if left unaddressed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFAQ(this)">
+                        <span class="font-semibold text-primary">Do I need technical knowledge to understand the audit
+                            report?</span>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-gray-600">
+                            No, our audit reports are designed to be easily understood by business owners and marketers,
+                            not just technical experts. We explain each issue in plain language, explain why it matters
+                            for your SEO, and provide clear, actionable recommendations for fixing it. For Professional
+                            and Enterprise audits, we also include consultation calls to walk you through the findings.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFAQ(this)">
+                        <span class="font-semibold text-primary">How often should I get a technical SEO audit?</span>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-gray-600">
+                            We recommend getting a comprehensive technical SEO audit at least once a year, or whenever
+                            you make significant changes to your website (such as a redesign, platform migration, or
+                            major content updates). For larger websites or those in competitive industries, quarterly
+                            audits may be beneficial to stay ahead of technical issues and algorithm updates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 sm:py-20 bg-gradient-to-r from-primary to-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
+                Ready to optimize your website's technical SEO?
+            </h2>
+            <p class="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
+                Get a comprehensive technical SEO audit and identify issues that may be holding back your search
+                rankings.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <input type="email" placeholder="Your email"
+                    class="px-4 sm:px-6 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary text-sm">
+                <button
+                    class="bg-secondary text-white px-6 sm:px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold text-sm sm:text-base">Get
+                    Started</button>
+            </div>
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm text-gray-300 mt-4">
+                <span>30% discount this week only</span>
+                <span>•</span>
+                <span>Results in 3-5 business days</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-12 sm:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                    Get Your Technical SEO Audit
+                </h2>
+                <p class="text-base sm:text-xl text-gray-600">
+                    Fill out the form below to get started with your technical SEO audit.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <form id="contactForm" class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8">
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                                required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 sm:mb-6">
+                        <label for="website" class="block text-sm font-medium text-gray-700 mb-2">Website URL</label>
+                        <input type="url" id="website" name="website"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                            required>
+                    </div>
+
+                    <div class="mb-4 sm:mb-6">
+                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                        <input type="text" id="company" name="company"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                    </div>
+
+                    <div class="mb-4 sm:mb-6">
+                        <label for="package" class="block text-sm font-medium text-gray-700 mb-2">Select Audit
+                            Package</label>
+                        <select id="package" name="package"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                            required>
+                            <option value="">Select a package</option>
+                            <option value="basic">Basic Audit - $149</option>
+                            <option value="professional">Professional Audit - $299</option>
+                            <option value="enterprise">Enterprise Audit - $599</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6 sm:mb-8">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Additional
+                            Information</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                            placeholder="Tell us about any specific concerns or goals for your website..."></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <button type="submit"
+                            class="flex-1 bg-secondary text-white py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            Submit Request
+                        </button>
+                        <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20your%20Technical%20SEO%20Audit%20service"
+                            target="_blank"
+                            class="flex-1 bg-whatsapp text-white py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>
+                            WhatsApp Us
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

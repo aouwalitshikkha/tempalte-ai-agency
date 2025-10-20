@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Service, Contact, FAQ
+from .models import Service, Contact, FAQ, SubService
 
 def home(request):
     services = Service.objects.all().order_by('service_name')
@@ -67,3 +67,46 @@ def service_detail(request, slug):
     }
     print("Service Detail Context:", context)  # Debugging line
     return render(request, "services/service_detail.html", context)
+
+
+
+
+def subservice_detail(request, service_slug, subservice_slug):
+    """
+    Display a SubService detail page based on nested slugs:
+    /<service>/<subservice>/
+    """
+
+    # Ensure both service and sub-service exist and match
+    parent_service = get_object_or_404(Service, slug=service_slug, is_active=True)
+    sub_service = get_object_or_404(
+        SubService,
+        slug=subservice_slug,
+        parent_service=parent_service,
+        is_active=True,
+    )
+
+    # Related subservices (for sidebar/navigation)
+    related_subservices = (
+        parent_service.sub_services.filter(is_active=True)
+        .exclude(id=sub_service.id)
+        .order_by("order")
+    )
+
+    # Features
+    features = sub_service.features.all()
+
+    # FAQs: Prefer sub-service ones, fallback to parent service
+    faqs = FAQ.objects.filter(is_active=True, sub_service=sub_service)
+    if not faqs.exists():
+        faqs = FAQ.objects.filter(is_active=True, service=parent_service)
+
+    context = {
+        "sub_service": sub_service,
+        "parent_service": parent_service,
+        "related_subservices": related_subservices,
+        "features": features,
+        "faqs": faqs,
+    }
+
+    return render(request, "services/subservice_detail.html", context)
