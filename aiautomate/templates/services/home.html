@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-12 sm:py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary leading-tight">
+                        Automate<br>
+                        your business with<br>
+                        <span class="text-secondary">AIAutomatic</span>
+                    </h1>
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
+                        Transform your business processes with our AI-powered automation solutions. Save time, reduce
+                        errors, and focus on what matters most - growing your business.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button
+                            class="bg-secondary text-white px-6 sm:px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold text-sm sm:text-base">
+                            Sign Up Now
+                        </button>
+                        <a href="#services"
+                            class="border-2 border-secondary text-secondary px-6 sm:px-8 py-3 rounded-full hover:bg-secondary hover:text-white transition-all font-semibold text-sm sm:text-base text-center">
+                            See Our Services
+                        </a>
+                    </div>
+                    <div
+                        class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm text-gray-500">
+                        <span>No credit card required</span>
+                        <span>•</span>
+                        <span>14 days free trial</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-6 sm:p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="space-y-4">
+                            <div class="h-3 sm:h-4 bg-gray-200 rounded w-3/4"></div>
+                            <div class="h-3 sm:h-4 bg-gray-200 rounded w-1/2"></div>
+                            <div class="h-24 sm:h-32 bg-gradient-to-r from-secondary to-pink-400 rounded-lg"></div>
+                            <div class="h-3 sm:h-4 bg-gray-200 rounded w-2/3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies -->
+    <section class="py-12 sm:py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-8 sm:mb-12">Trusted by businesses worldwide
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-8 items-center">
+                <!-- Google -->
+                <div
+                    class="flex items-center justify-center h-12 sm:h-16 filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                    <svg class="w-20 sm:w-24 h-auto" viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                </div>
+
+                <!-- Microsoft -->
+                <div
+                    class="flex items-center justify-center h-12 sm:h-16 filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                    <svg class="w-20 sm:w-24 h-auto" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="9" height="9" fill="#F25022" />
+                        <rect x="13" y="2" width="9" height="9" fill="#7FBA00" />
+                        <rect x="2" y="13" width="9" height="9" fill="#00A4EF" />
+                        <rect x="13" y="13" width="9" height="9" fill="#FFB900" />
+                    </svg>
+                </div>
+
+                <!-- Amazon -->
+                <div
+                    class="flex items-center justify-center h-12 sm:h-16 filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                    <svg class="w-20 sm:w-24 h-auto" viewBox="0 0 24 24">
+                        <path fill="#FF9900"
+                            d="M12.536 11.25c-.966-.5-1.5-.9-1.5-1.5 0-.516.425-.938 1.188-.938.688 0 1.163.275 1.163.275l.344-1.063S13.388 7.5 12.263 7.5c-1.5 0-2.531.938-2.531 2.25 0 1.188.844 1.875 2.031 2.438.938.438 1.25.875 1.25 1.5 0 .688-.563 1.125-1.438 1.125-.844 0-1.688-.438-1.688-.438l-.344 1.063s.844.563 2.031.563c1.688 0 2.813-1 2.813-2.313 0-1.25-.844-1.938-2.063-2.5zM21.938 16.5c-.313 0-.563-.25-.563-.563s.25-.563.563-.563.563.25.563.563-.25.563-.563.563zm0-1.25c-.375 0-.688.313-.688.688s.313.688.688.688.688-.313.688-.688-.313-.688-.688-.688zm-8.125 1.25c-3.75 0-6.75-3-6.75-6.75s3-6.75 6.75-6.75 6.75 3 6.75 6.75-3 6.75-6.75 6.75zm0-12.5c-3.188 0-5.75 2.563-5.75 5.75s2.563 5.75 5.75 5.75 5.75-2.563 5.75-5.75-2.563-5.75-5.75-5.75z" />
+                    </svg>
+                </div>
+
+                <!-- Apple -->
+                <div
+                    class="flex items-center justify-center h-12 sm:h-16 filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                    <svg class="w-16 sm:w-20 h-auto" viewBox="0 0 24 24">
+                        <path fill="#000"
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                </div>
+
+                <!-- Meta/Facebook -->
+                <div
+                    class="flex items-center justify-center h-12 sm:h-16 filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                    <svg class="w-20 sm:w-24 h-auto" viewBox="0 0 24 24">
+                        <path fill="#1877F2"
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </div>
+
+                <!-- Salesforce -->
+                <div
+                    class="flex items-center justify-center h-12 sm:h-16 filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                    <svg class="w-20 sm:w-24 h-auto" viewBox="0 0 24 24">
+                        <path fill="#00A1E0"
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ✅ Dynamic Services Section -->
+<section id="services" class="py-12 sm:py-20">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                Our Automation<br>Services
+            </h2>
+            <p class="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                Streamline your business operations with our comprehensive automation solutions.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {% for service in services %}
+            <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-accent rounded-full flex items-center justify-center mb-4 sm:mb-6 ">
+                    {% if service.icon_class %}
+                        <i class="{{ service.icon_class }} text-secondary text-3xl sm:text-4xl text-cen"></i>
+                    {% else %}
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633z" clip-rule="evenodd"/>
+                        </svg>
+                    {% endif %}
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-3">{{ service.service_name }}</h3>
+                <p class="text-gray-600 mb-4 text-sm sm:text-base">{{ service.short_description|truncatewords:25 }}</p>
+                {% if service.is_active %}
+                    {% comment %} <a href="{% url 'subservice_list' service.slug %}" class="text-secondary font-semibold hover:underline text-sm sm:text-base">Learn more →</a> {% endcomment %}
+                    <a href="#" class="text-secondary font-semibold hover:underline text-sm sm:text-base">Learn more →</a>
+
+
+                {% else %}
+                    <span class="text-gray-400 italic text-sm">Coming soon</span>
+                {% endif %}
+            </div>
+            {% empty %}
+                <p class="text-gray-500 col-span-full text-center">No active services available yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+    <!-- Features Section -->
+    <section class="py-12 sm:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class="space-y-6 sm:space-y-8">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-primary">
+                        Faster advantage for<br>
+                        your business automation.
+                    </h2>
+                    <p class="text-base sm:text-xl text-gray-600">
+                        Streamline your operations and focus on growth with our comprehensive automation solutions.
+                    </p>
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-2">Custom automation
+                                    solutions</h3>
+                                <p class="text-gray-600 text-sm sm:text-base">Tailored automation workflows designed
+                                    specifically for your business needs and industry requirements.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-2">Enterprise-grade security
+                                </h3>
+                                <p class="text-gray-600 text-sm sm:text-base">Your data is protected with
+                                    industry-leading security measures and compliance standards.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-primary mb-2">Seamless integration</h3>
+                                <p class="text-gray-600 text-sm sm:text-base">Connect with your existing tools and
+                                    platforms for a unified automation experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="bg-gradient-to-br from-blue-light to-blue-200 rounded-xl sm:rounded-2xl p-6 sm:p-8 h-64 sm:h-96 flex items-center justify-center">
+                        <div class="text-center">
+                            <div
+                                class="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-12 h-12 sm:w-16 sm:h-16 text-secondary" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-semibold text-primary">Automation Dashboard</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 sm:py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                    AIAutomatic makes your<br>
+                    business operations easier.
+                </h2>
+                <p class="text-base sm:text-xl text-gray-600">
+                    Join thousands of businesses that have transformed their operations with our automation solutions.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6 sm:gap-8 text-center">
+                <div class="space-y-2 sm:space-y-4">
+                    <div class="text-4xl sm:text-5xl font-bold text-secondary">500K+</div>
+                    <p class="text-base sm:text-xl text-gray-600">Automated tasks completed daily</p>
+                </div>
+                <div class="space-y-2 sm:space-y-4">
+                    <div class="text-4xl sm:text-5xl font-bold text-secondary">98%</div>
+                    <p class="text-base sm:text-xl text-gray-600">Client satisfaction rate</p>
+                </div>
+                <div class="space-y-2 sm:space-y-4">
+                    <div class="text-4xl sm:text-5xl font-bold text-secondary">10k+</div>
+                    <p class="text-base sm:text-xl text-gray-600">Businesses automated</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-12 sm:py-20 bg-gradient-to-r from-primary to-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
+                    See how our automation<br>
+                    solutions work.
+                </h2>
+                <p class="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8">
+                    Watch our demo to understand how AIAutomatic can transform your business processes and save you
+                    valuable time.
+                </p>
+                <div class="bg-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-8 mb-6 sm:mb-8">
+                    <div class="aspect-video bg-gray-700 rounded-lg flex items-center justify-center">
+                        <button
+                            class="w-16 h-16 sm:w-20 sm:h-20 bg-secondary rounded-full flex items-center justify-center hover:bg-opacity-90 transition-all">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4 sm:gap-8 text-left">
+                    <div class="bg-gray-800 rounded-xl p-4 sm:p-6">
+                        <h3 class="text-base sm:text-xl font-semibold text-white mb-3">Build custom automation workflows
+                            without coding.</h3>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-4 sm:p-6">
+                        <h3 class="text-base sm:text-xl font-semibold text-white mb-3">Integrate with 1000+ apps to
+                            streamline your entire business.</h3>
+                    </div>
+                </div>
+                <button
+                    class="mt-6 sm:mt-8 bg-secondary text-white px-6 sm:px-8 py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold text-sm sm:text-base">Get
+                    Started Now</button>
+            </div>
+        </div>
+    </section>
+
+<!-- ✅ Testimonials (dynamic) -->
+<section class="py-12 sm:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">What our clients say</h2>
+            <p class="text-base sm:text-xl text-gray-600">Businesses that have transformed their operations with AIAutomatic</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {% for t in testimonials %}
+            <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg">
+                <div class="flex items-center mb-4">
+                    {% if t.photo %}
+                        <img src="{{ t.photo.url }}" alt="{{ t.name }}" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-4 object-cover">
+                    {% else %}
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-300 rounded-full mr-4"></div>
+                    {% endif %}
+                    <div>
+                        <h4 class="font-semibold text-primary text-sm sm:text-base">{{ t.name }}</h4>
+                        {% if t.designation %}
+                            <p class="text-gray-600 text-xs sm:text-sm">{{ t.designation }}</p>
+                        {% endif %}
+                        {% if t.company %}
+                            <p class="text-gray-500 text-xs">{{ t.company }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <p class="text-gray-700 text-sm sm:text-base">"{{ t.message }}"</p>
+            </div>
+            {% empty %}
+                <p class="text-gray-500 text-center col-span-full">No testimonials yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Form Section -->
+<!-- ✅ CONTACT FORM SECTION -->
+<section id="contact" class="py-12 sm:py-20">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                Get in Touch
+            </h2>
+            <p class="text-base sm:text-xl text-gray-600">
+                Ready to automate your business? Let's discuss how we can help you transform your operations.
+            </p>
+        </div>
+
+        <!-- ✅ Toast container moved to BOTTOM-RIGHT -->
+<div id="toast-container"
+    class="fixed bottom-6 right-6 z-[9999] space-y-3 pointer-events-none"></div>
+
+
+        <div class="max-w-2xl mx-auto">
+            <form method="POST" id="contactForm"
+                class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8">
+                {% csrf_token %}
+                <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                            required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                            required>
+                    </div>
+                </div>
+
+                <div class="mb-4 sm:mb-6">
+                    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                    <input type="text" id="company" name="company"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                </div>
+
+                <div class="mb-4 sm:mb-6">
+                    <label for="service_interested" class="block text-sm font-medium text-gray-700 mb-2">
+                        Service Interested In
+                    </label>
+                    <select id="service_interested" name="service_interested"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <option value="">Select a service</option>
+                        {% for s in services %}
+                            <option value="{{ s.id }}">{{ s.service_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-6 sm:mb-8">
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+                        required></textarea>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <button type="submit"
+                        class="flex-1 bg-secondary text-white py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        Send Message
+                    </button>
+                    <a href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20your%20automation%20services"
+                        target="_blank"
+                        class="flex-1 bg-whatsapp text-white py-3 rounded-full hover:bg-opacity-90 transition-all font-semibold flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                        WhatsApp Us
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+function showToast(message, type = "success") {
+    const container = document.getElementById("toast-container");
+    if (!container) {
+        console.error("Toast container not found!");
+        return;
+    }
+
+    // Create the toast element
+    const toast = document.createElement("div");
+
+    // Set base classes for styling and initial state (hidden)
+    toast.className = `
+        flex items-center px-5 py-3 rounded-xl shadow-2xl backdrop-blur-md
+        text-white transition-all duration-500 ease-in-out
+        transform translate-y-6 opacity-0
+        ${type === "success" ? "bg-secondary" : "bg-red-500"}
+    `;
+    toast.style.zIndex = 99999; // Ensure it's on top
+
+    // Set the inner HTML for the toast content
+    toast.innerHTML = `
+        <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-sm font-medium">${message}</span>
+    `;
+
+    // Append the toast to its container
+    container.appendChild(toast);
+
+    // --- ANIMATION FIX ---
+    // Use requestAnimationFrame to ensure the initial state is rendered before animating
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            toast.classList.remove("translate-y-6", "opacity-0");
+            toast.classList.add("translate-y-0", "opacity-100");
+        });
+    });
+
+    // Schedule the toast to be removed
+    setTimeout(() => {
+        // Animate out
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("translate-y-6", "opacity-0");
+
+        // Remove the element from the DOM after the transition ends
+        toast.addEventListener('transitionend', () => {
+            toast.remove();
+        }, { once: true }); // Use 'once' to auto-remove the event listener
+
+    }, 4000); // Start hiding after 4 seconds
+}
+
+// Display Django messages as toasts
+document.addEventListener("DOMContentLoaded", () => {
+    {% if messages %}
+        {% for message in messages %}
+            showToast("{{ message|escapejs }}", "{{ message.tags|default:'success' }}");
+        {% endfor %}
+    {% endif %}
+
+    // Example for testing without Django:
+    // showToast("This is a success message!");
+    // showToast("This is an error message.", "error");
+});
+</script>
+
+
+
+
+
+    {% endblock content %}
+   

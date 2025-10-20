@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}{{ service.title }} - AIAutomatic{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-12 sm:py-20">
+  <div class="container mx-auto px-4 text-center">
+    <div class="inline-flex items-center bg-accent rounded-full px-4 py-2 mb-6">
+      <span class="text-secondary text-sm font-semibold">{{ main_service.title|upper }}</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-bold text-primary mb-6">
+      {{ main_service.title }}
+    </h1>
+    {% if main_service.short_description %}
+    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">{{ main_service.short_description }}</p>
+    {% endif %}
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#subservices" class="bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90">Explore Services</a>
+      <a href="#contact" class="border-2 border-secondary text-secondary px-8 py-3 rounded-full hover:bg-secondary hover:text-white font-semibold">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED IMAGE -->
+{% if main_service.featured_image %}
+<section class="py-8">
+  <div class="container mx-auto px-4">
+    <img src="{{ main_service.featured_image.url }}" alt="{{ main_service.title }}" class="rounded-2xl shadow-xl mx-auto">
+  </div>
+</section>
+{% endif %}
+
+<!-- SUBSERVICES -->
+<section id="subservices" class="py-12 sm:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary">Our {{ main_service.title }} Solutions</h2>
+      <p class="text-gray-600 text-lg mt-3">Explore the specialized automation services we offer under this category.</p>
+    </div>
+
+    {% for sub in subservices %}
+    <div class="bg-white rounded-xl shadow-lg p-6 sm:p-10 mb-10">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-3">{{ sub.title }}</h3>
+          <p class="text-gray-600 mb-5">{{ sub.short_description }}</p>
+          {% if sub.introduction %}
+          <div class="text-sm text-gray-500 mb-4">{{ sub.introduction|truncatewords:40 }}</div>
+          {% endif %}
+          <a href="{% url 'service_detail' sub.slug %}" class="text-secondary font-semibold hover:underline">Learn more →</a>
+        </div>
+        {% if sub.featured_image %}
+        <div>
+          <img src="{{ sub.featured_image.url }}" alt="{{ sub.title }}" class="rounded-xl shadow-md">
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Features -->
+      {% if sub.features.all %}
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for feature in sub.features.all %}
+        <div class="flex items-start space-x-3">
+          <div class="text-secondary text-xl">{% if feature.icon %}{{ feature.icon|safe }}{% endif %}</div>
+          <div>
+            <h4 class="font-semibold text-primary">{{ feature.title }}</h4>
+            <p class="text-gray-600 text-sm">{{ feature.description }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% empty %}
+    <p class="text-center text-gray-500">No sub-services available yet under this category.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- TRUSTED COMPANIES -->
+{% if company_logos %}
+<section class="py-12 sm:py-16">
+  <div class="container mx-auto px-4 text-center">
+    <h3 class="text-2xl font-bold text-primary mb-6">Trusted by Leading Brands</h3>
+    <div class="flex flex-wrap justify-center gap-6">
+      {% for company in company_logos %}
+      <a href="{{ company.website|default:'#' }}" target="_blank">
+        <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-12 sm:h-16 grayscale hover:grayscale-0 transition-all">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- TESTIMONIALS -->
+{% if testimonials %}
+<section class="py-12 sm:py-20 bg-gray-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-primary mb-10">What Our Clients Say</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for t in testimonials %}
+      <div class="bg-white shadow-lg rounded-xl p-6">
+        {% if t.photo %}
+        <img src="{{ t.photo.url }}" alt="{{ t.name }}" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover">
+        {% endif %}
+        <p class="text-gray-600 italic mb-3">“{{ t.message }}”</p>
+        <h4 class="font-semibold text-primary">{{ t.name }}</h4>
+        {% if t.designation %}
+        <p class="text-sm text-gray-500">{{ t.designation }}{% if t.company %}, {{ t.company }}{% endif %}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+{% endblock %}
